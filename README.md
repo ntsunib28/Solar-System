@@ -1,7 +1,7 @@
 # Solar-System
 Solar System project using ThreeJS
 
-Default Camera -> Camera 1
+Default Camera -> Camera 2
 
 Press Space to switch camera
 

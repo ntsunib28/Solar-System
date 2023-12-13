@@ -1,6 +1,9 @@
 import * as THREE from './Three JS/build/three.module.js'
 import { OrbitControls } from './Three JS/examples/jsm/controls/OrbitControls.js'
 
+const popup = document.getElementById('popup');
+const xButton = document.getElementById('closeButton');
+
 let scene, orbitCam, normalCam, currentCam, renderer, controls
 let sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune
 const textureLoader = new THREE.TextureLoader()
@@ -83,10 +86,8 @@ function createPlanet(map, size, x, planetName, ring) {
     return { mesh: mesh, obj: obj }
 }
 
-
-
-
 mercury = createPlanet("./assets/mercury.jpg", 3.2, 28, mercury)
+mercury.mesh.name = 'Mercury';
 venus = createPlanet("./assets/venus.jpg", 5.8, 44, venus)
 earth = createPlanet("./assets/earth.jpg", 6, 62, earth)
 mars = createPlanet("./assets/mars.jpg", 4, 78, mars)
@@ -171,7 +172,7 @@ function allEvent() {
 
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
-    let intersects = []; // Initialize as an empty array
+    let intersects = [0]; // Initialize as an empty array
 
     window.addEventListener("mousemove", event => {
         pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -193,7 +194,6 @@ function allEvent() {
     });
 
     function onPlanetClick() {
-        const popup = document.getElementById('popup');
         if (intersects.length > 0) {
             console.log(intersects[0].object);
             console.log("clicked");
@@ -201,12 +201,19 @@ function allEvent() {
         }
     }
 
+    function handleClick() {
+        event.stopPropagation();
+        popup.style.display = 'none';
+    }
+
+    xButton.addEventListener('click', handleClick);
+
     window.addEventListener('click', event => {
         if (intersects.length > 0 && intersects[0].object.userData.isClickable) {
-            intersects[0].object.userData.isClickable = false; // Update the isClickable flag
             onPlanetClick();
         } else {
             document.body.style.cursor = 'default';
+            popup.style.display = 'none';
         }
     });
 }

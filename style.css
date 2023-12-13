@@ -6,6 +6,7 @@
 .popup {
     display: none;
     position: fixed;
+    width: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -15,6 +16,25 @@
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 999;
+}
+
+.popup .popup-content img {
+    width: 200px;
+    margin-top: -100px;
+    border-radius: 50%;
+}
+
+.popup .popup-content #closeButton{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: white;
+    color: black;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 100px;
+    cursor: pointer;
 }
 
 .popup-content {

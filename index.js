@@ -32,12 +32,10 @@ const sunMat = new THREE.MeshBasicMaterial({
     map: textureLoader.load("./assets/sun.jpg")
 });
 sun = new THREE.Mesh(sunGeo, sunMat);
-console.log(sun)
 sun.userData = {
     isClickable: true,
-    planetName: sun
 };
-console.log(sun)
+sun.name = 'Sun'
 scene.add(sun);
 
 // Sunlight
@@ -76,29 +74,26 @@ function createPlanet(map, size, x, planetName, ring) {
     }
 
     mesh.position.x = x
-    mesh.userData = {
-        isClickable: true,
-        planetName: planetName
-    };
+    mesh.userData = { isClickable: true };
+    mesh.name = planetName
 
     scene.add(obj)
 
     return { mesh: mesh, obj: obj }
 }
 
-mercury = createPlanet("./assets/mercury.jpg", 3.2, 28, mercury)
-mercury.mesh.name = 'Mercury';
-venus = createPlanet("./assets/venus.jpg", 5.8, 44, venus)
-earth = createPlanet("./assets/earth.jpg", 6, 62, earth)
-mars = createPlanet("./assets/mars.jpg", 4, 78, mars)
-jupiter = createPlanet("./assets/jupiter.jpg", 12, 100, jupiter)
-saturn = createPlanet("./assets/saturn.jpg", 10, 138, saturn, {
+mercury = createPlanet("./assets/mercury.jpg", 3.2, 28, 'Mercury')
+venus = createPlanet("./assets/venus.jpg", 5.8, 44, 'Venus')
+earth = createPlanet("./assets/earth.jpg", 6, 62, 'Earth')
+mars = createPlanet("./assets/mars.jpg", 4, 78, 'Mars')
+jupiter = createPlanet("./assets/jupiter.jpg", 12, 100, 'Jupiter')
+saturn = createPlanet("./assets/saturn.jpg", 10, 138, 'Saturn', {
     innerRadius: 10,
     outerRadius: 20,
     texture: "./assets/saturn_ring.png"
 })
-uranus = createPlanet("./assets/uranus.jpg", 7, 176, uranus)
-neptune = createPlanet("./assets/neptune.jpg", 7, 200, neptune)
+uranus = createPlanet("./assets/uranus.jpg", 7, 176, 'Uranus')
+neptune = createPlanet("./assets/neptune.jpg", 7, 200, 'Neptune')
 
 window.addEventListener("keydown", (event) => {
     let key = event.key

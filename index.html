@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar System</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
     <script type="module" src="./index.js"></script>
 </head>
 <body>
-    
+    <div id="popup" class="popup">
+        <div id="popup-content" class="popup-content">
+            <!-- <script type="module">
+                import { earth } from "./index.js"
+                const bumi = new earth();
+            </script> -->
+            <!-- Content of the popup goes here -->
+            <h2 id="popup-planet-name">!@#!@#!@#!@#!@</h2>
+            <p id="popup-planet-desc">INI PLANET</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
 </body>
 </html>

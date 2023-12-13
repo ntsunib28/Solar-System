@@ -1,5 +1,5 @@
 import * as THREE from './Three JS/build/three.module.js'
-import {OrbitControls} from './Three JS/examples/jsm/controls/OrbitControls.js'
+import { OrbitControls } from './Three JS/examples/jsm/controls/OrbitControls.js'
 
 let scene, orbitCam, normalCam, currentCam, renderer, controls
 let sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune
@@ -14,11 +14,11 @@ const aspect = width / height
 orbitCam = new THREE.PerspectiveCamera(fov, aspect, 0.1, 1000)
 normalCam = new THREE.PerspectiveCamera(fov, aspect, 0.1, 1000)
 
-orbitCam.position.set(-90,140,140)
-normalCam.position.set(-90,140,140)
-normalCam.lookAt(0,0,0)
+orbitCam.position.set(-90, 140, 140)
+normalCam.position.set(-90, 140, 140)
+normalCam.lookAt(0, 0, 0)
 currentCam = normalCam
-renderer = new THREE.WebGLRenderer({antialias: true})
+renderer = new THREE.WebGLRenderer({ antialias: true })
 controls = new OrbitControls(orbitCam, renderer.domElement)
 controls.update()
 document.body.appendChild(renderer.domElement)
@@ -30,7 +30,10 @@ const sunMat = new THREE.MeshBasicMaterial({
 });
 sun = new THREE.Mesh(sunGeo, sunMat);
 console.log(sun)
-sun.userData = { isClickable: true }
+sun.userData = {
+    isClickable: true,
+    planetName: sun
+};
 console.log(sun)
 scene.add(sun);
 
@@ -42,7 +45,7 @@ scene.add(pointLight);
 const ambientLight = new THREE.AmbientLight(0x333333);
 scene.add(ambientLight);
 
-function createPlanet(map, size, x, ring){
+function createPlanet(map, size, x, planetName, ring) {
     const texture = textureLoader.load(map)
     const geo = new THREE.SphereGeometry(size, 30, 30)
     const mat = new THREE.MeshStandardMaterial({
@@ -51,8 +54,8 @@ function createPlanet(map, size, x, ring){
     const mesh = new THREE.Mesh(geo, mat)
     const obj = new THREE.Object3D()
     obj.add(mesh)
-    
-    if(ring) {
+
+    if (ring) {
         const ringGeo = new THREE.RingGeometry(
             ring.innerRadius,
             ring.outerRadius,
@@ -70,141 +73,148 @@ function createPlanet(map, size, x, ring){
     }
 
     mesh.position.x = x
-    mesh.userData = { isClickable: true }
+    mesh.userData = {
+        isClickable: true,
+        planetName: planetName
+    };
 
     scene.add(obj)
 
-    return {mesh: mesh, obj: obj}
+    return { mesh: mesh, obj: obj }
 }
 
 
 
 
-mercury = createPlanet("./assets/mercury.jpg", 3.2, 28)
-venus = createPlanet("./assets/venus.jpg", 5.8, 44)
-earth = createPlanet("./assets/earth.jpg", 6, 62)
-mars = createPlanet("./assets/mars.jpg", 4, 78)
-jupiter = createPlanet("./assets/jupiter.jpg", 12, 100)
-saturn = createPlanet("./assets/saturn.jpg", 10, 138, {
+mercury = createPlanet("./assets/mercury.jpg", 3.2, 28, mercury)
+venus = createPlanet("./assets/venus.jpg", 5.8, 44, venus)
+earth = createPlanet("./assets/earth.jpg", 6, 62, earth)
+mars = createPlanet("./assets/mars.jpg", 4, 78, mars)
+jupiter = createPlanet("./assets/jupiter.jpg", 12, 100, jupiter)
+saturn = createPlanet("./assets/saturn.jpg", 10, 138, saturn, {
     innerRadius: 10,
     outerRadius: 20,
     texture: "./assets/saturn_ring.png"
 })
-uranus = createPlanet("./assets/uranus.jpg", 7, 176)
-neptune = createPlanet("./assets/neptune.jpg", 7, 200)
+uranus = createPlanet("./assets/uranus.jpg", 7, 176, uranus)
+neptune = createPlanet("./assets/neptune.jpg", 7, 200, neptune)
 
-window.addEventListener("keydown", (event)=>{
+window.addEventListener("keydown", (event) => {
     let key = event.key
-    if(key == " "){
+    if (key == " ") {
         console.log("SPACE")
-        if(currentCam == orbitCam) currentCam = normalCam
+        if (currentCam == orbitCam) currentCam = normalCam
         else currentCam = orbitCam
     }
 
     // controls.target = earth.position
 
-    if(currentCam == normalCam){
-        if(key == "w"){
+    if (currentCam == normalCam) {
+        if (key == "w") {
             //w
             currentCam.position.y += 2
-        }else if(key == "a"){
+        } else if (key == "a") {
             //a
             currentCam.position.x -= 2
-        }else if(key == "s"){
+        } else if (key == "s") {
             //s
             currentCam.position.y -= 2
-        }else if(key == "d"){
+        } else if (key == "d") {
             //d
             currentCam.position.x += 2
-        }else if(key == "-"){
+        } else if (key == "-") {
             //-(ZOOM OUT)
             currentCam.position.z += 2
-        }else if(key == "="){
+        } else if (key == "=") {
             //=(ZOOM IN)
             currentCam.position.z -= 2
         }
     }
-    
+
 })
 
 function animatePlanet() {
     //Rotasi
-    sun.rotateY(0.004);
-    mercury.mesh.rotateY(0.004);
-    venus.mesh.rotateY(0.002);
-    earth.mesh.rotateY(0.02);
-    mars.mesh.rotateY(0.018);
-    jupiter.mesh.rotateY(0.04);
-    saturn.mesh.rotateY(0.038);
-    uranus.mesh.rotateY(0.03);
-    neptune.mesh.rotateY(0.032);
+    sun.rotateY(0.0004);
+    mercury.mesh.rotateY(0.0004);
+    venus.mesh.rotateY(0.0002);
+    earth.mesh.rotateY(0.002);
+    mars.mesh.rotateY(0.0018);
+    jupiter.mesh.rotateY(0.004);
+    saturn.mesh.rotateY(0.0038);
+    uranus.mesh.rotateY(0.003);
+    neptune.mesh.rotateY(0.0032);
 
     //Revolusi
-    mercury.obj.rotateY(0.04);
-    venus.obj.rotateY(0.015);
-    earth.obj.rotateY(0.01);
-    mars.obj.rotateY(0.008);
-    jupiter.obj.rotateY(0.002);
-    saturn.obj.rotateY(0.0009);
-    uranus.obj.rotateY(0.0004);
-    neptune.obj.rotateY(0.0001);
+    mercury.obj.rotateY(0.004);
+    venus.obj.rotateY(0.0015);
+    earth.obj.rotateY(0.001);
+    mars.obj.rotateY(0.0008);
+    jupiter.obj.rotateY(0.0002);
+    saturn.obj.rotateY(0.00009);
+    uranus.obj.rotateY(0.00004);
+    neptune.obj.rotateY(0.00001);
 
     renderer.render(scene, currentCam);
 }
 
 renderer.setAnimationLoop(animatePlanet)
 
-animatePlanet()
-resize()
-
-
-function resize(){
+function resize() {
     renderer.setSize(window.innerWidth, window.innerHeight)
     currentCam.aspect = window.innerWidth / window.innerHeight
     currentCam.updateProjectionMatrix()
 }
-window.addEventListener("resize", resize)
 
-const raycaster = new THREE.Raycaster()
-const pointer = new THREE.Vector2()
-const intersects = raycaster.intersectObjects(scene.children, true)
+function allEvent() {
+    window.addEventListener("resize", resize)
 
-window.addEventListener("onmove", event =>{
-    pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    let intersects = []; // Initialize as an empty array
 
-    raycaster.setFromCamera(pointer, currentCam)
-    intersects = raycaster.intersectObjects(scene.children)
-    
-    if (intersects.length > 0) {
-        const clickableObject = intersects[0].object;
-        if (clickableObject.userData.isClickable) {
-          document.body.style.cursor = 'pointer';
+    window.addEventListener("mousemove", event => {
+        pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+        pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(pointer, currentCam);
+        intersects = raycaster.intersectObjects(scene.children, true);
+
+        if (intersects.length > 0) {
+            const clickableObject = intersects[0].object;
+            if (clickableObject.userData.isClickable) {
+                document.body.style.cursor = 'pointer';
+            } else {
+                document.body.style.cursor = 'default';
+            }
         } else {
-          document.body.style.cursor = 'default';
+            document.body.style.cursor = 'default';
         }
-      } else {
-        document.body.style.cursor = 'default';
-      }
-})
+    });
 
-function onPlanetClick(){
-    console.log(intersects[0].object)
-    console.log("clicked")
-}
-
-window.addEventListener('click', event =>{
-    pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-    raycaster.setFromCamera(pointer, currentCam)
-
-    // Check for intersections
-    if (intersects.length > 0 && intersects[0].object.userData.isClickable) {
-        intersects[0].object.userData = { isClickable: false }
-        onPlanetClick()
-    } else {
-      document.body.style.cursor = 'default'
+    function onPlanetClick() {
+        const popup = document.getElementById('popup');
+        if (intersects.length > 0) {
+            console.log(intersects[0].object);
+            console.log("clicked");
+            popup.style.display = 'block';
+        }
     }
 
-})
+    window.addEventListener('click', event => {
+        if (intersects.length > 0 && intersects[0].object.userData.isClickable) {
+            intersects[0].object.userData.isClickable = false; // Update the isClickable flag
+            onPlanetClick();
+        } else {
+            document.body.style.cursor = 'default';
+        }
+    });
+}
+
+function init() {
+    allEvent()
+    animatePlanet()
+    resize()
+}
+
+init()

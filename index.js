@@ -187,12 +187,72 @@ function allEvent() {
             document.body.style.cursor = 'default';
         }
     });
-
+    
+    mercury.mesh.metadata = {
+        name: 'mercury',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
+    venus.mesh.metadata = {
+        name: 'Venus',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
+    earth.mesh.metadata = {
+        name: 'earth',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
+    mars.mesh.metadata = {
+        name: 'mars',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
+    jupiter.mesh.metadata = {
+        name: 'jupiter',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
+    saturn.mesh.metadata = {
+        name: 'saturn',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
+    uranus.mesh.metadata = {
+        name: 'uranus',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
+    neptune.mesh.metadata = {
+        name: 'neptune',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
+    
     function onPlanetClick() {
         if (intersects.length > 0) {
-            console.log(intersects[0].object);
-            console.log("clicked");
-            popup.style.display = 'block';
+            const clickedObject = intersects[0].object;
+            if (clickedObject.userData.isClickable && clickedObject.metadata) {
+                const planetMetadata = clickedObject.metadata;
+    
+                // Ganti isi elemen-elemen popup dengan informasi planet
+                document.getElementById('popupTitle').innerText = planetMetadata.name;
+                if (popupTitle) {
+                    popupTitle.style.color = '#FFFFFF';
+                }
+                document.getElementById('popupDescription').innerText = planetMetadata.description;
+                if (popupDescription) {
+                    popupDescription.style.color = '#FFFFFF';
+                }
+    
+                // Ganti sumber gambar popup
+                const popupImage = document.getElementById('popupImage');
+                if (popupImage) {
+                    popupImage.src = planetMetadata.imageSrc;
+                }
+    
+                popup.style.display = 'block';
+            }
         }
     }
 

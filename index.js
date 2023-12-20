@@ -189,48 +189,84 @@ function allEvent() {
     });
     
     sun.metadata = {
-        name: 'sun',
-        description: 'The Sun is a star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. The Sun is by far the most important source of energy for life on Earth, providing the warmth and light that make our planet habitable',
+        name: 'Sun',
+        description: 'The Sun is a star at the center of the Solar System.It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. The Sun is by far the most important source of energy for life on Earth, providing the warmth and light that make our planet habitable',
+        volume: 'Volume: blablabla / 0.9 bumi misal',
+        mass: 'Mass: asd / 0.9 bumi misal',
+        gravity: 'Gravity: asd / 0.9 bumi misal',
+        temperature: 'Temperature: asd / 0.9 bumi misal',
         imageSrc: './assets/psun.png',
     };
     mercury.mesh.metadata = {
-        name: 'mercury',
+        name: 'Mercury',
         description: 'Mercury is the smallest planet in the Solar System and the closest to the Sun. It has a heavily cratered surface and no atmosphere to speak of. It is named after the Roman messenger god Mercury, who was known for his speed',
+        volume: 'Volume: asd',
+        mass: 'Mass: asd',
+        gravity: 'Gravity: asd',
+        temperature: 'Temperature: asd',
         imageSrc: './assets/pmercury.png',
     };
     venus.mesh.metadata = {
         name: 'Venus',
         description: 'Venus is the second planet from the Sun and is often referred to as the Earth’s sister planet due to their similar size, mass, and composition. Venus has a thick atmosphere that traps heat, making it the hottest planet in the Solar System. It is named after the Roman goddess of love and beauty.',
+        volume: 'Volume: asd',
+        mass: 'Mass: asd',
+        gravity: 'Gravity: asd',
+        temperature: 'Temperature: asd',
         imageSrc: './assets/pvenus.png',
     };
     earth.mesh.metadata = {
-        name: 'earth',
+        name: 'Earth',
         description: ' Earth is the third planet from the Sun and the only known planet to support life. It has a complex and dynamic system of interacting components, including the atmosphere, hydrosphere, biosphere, and geosphere. Earth is named after the Germanic word for “ground” or “soil” .',
+        volume: 'Volume: asd',
+        mass: 'Mass: asd',
+        gravity: 'Gravity: asd',
+        temperature: 'Temperature: asd',
         imageSrc: './assets/pearth.png',
     };
     mars.mesh.metadata = {
-        name: 'mars',
+        name: 'Mars',
         description: 'Mars is the fourth planet from the Sun and is often called the “Red Planet” due to its reddish appearance in the night sky. It has a thin atmosphere and a cold, desert-like surface. Mars is named after the Roman god of war.',
+        volume: 'Volume: asd',
+        mass: 'Mass: asd',
+        gravity: 'Gravity: asd',
+        temperature: 'Temperature: asd',
         imageSrc: './assets/pmars.png',
     };
     jupiter.mesh.metadata = {
-        name: 'jupiter',
+        name: 'Jupiter',
         description: 'Jupiter is the largest planet in the Solar System and is known for its distinctive banded appearance and the Great Red Spot, a giant storm that has been raging for centuries. It has a strong magnetic field and many moons, including the four largest known as the Galilean moons. Jupiter is named after the king of the Roman gods.',
+        volume: 'Volume: asd',
+        mass: 'Mass: asd',
+        gravity: 'Gravity: asd',
+        temperature: 'Temperature: asd',
         imageSrc: './assets/pjupiter.png',
     };
     saturn.mesh.metadata = {
-        name: 'saturn',
+        name: 'Saturn',
         description: 'Saturn is the sixth planet from the Sun and is known for its beautiful rings, which are made up of countless particles of ice and rock. It has a complex system of moons, including the largest moon in the Solar System, Titan. Saturn is named after the Roman god of agriculture.',
+        volume: 'Volume: asd',
+        mass: 'Mass: asd',
+        gravity: 'Gravity: asd',
+        temperature: 'Temperature: asd',
         imageSrc: './assets/psaturn.png',
     };
     uranus.mesh.metadata = {
-        name: 'uranus',
+        name: 'Uranus',
         description: 'Uranus is the seventh planet from the Sun and is unique among the planets in that it rotates on its side. It has a faint ring system and a number of small moons. Uranus is named after the Greek god of the sky.',
+        volume: 'Volume: asd',
+        mass: 'Mass: asd',
+        gravity: 'Gravity: asd',
+        temperature: 'Temperature: asd',
         imageSrc: './assets/puranus.png',
     };
     neptune.mesh.metadata = {
-        name: 'neptune',
+        name: 'Neptune',
         description: 'Neptune is the eighth and farthest planet from the Sun. It has a deep blue color due to the presence of methane in its atmosphere. Neptune has a complex system of rings and many moons, including the largest known as Triton. Neptune is named after the Roman god of the sea.',
+        volume: 'Volume: asd',
+        mass: 'Mass: asd',
+        gravity: 'Gravity: asd',
+        temperature: 'Temperature: asd',
         imageSrc: './assets/pneptune.png',
     };
     
@@ -248,6 +284,23 @@ function allEvent() {
                 document.getElementById('popupDescription').innerText = planetMetadata.description;
                 if (popupDescription) {
                     popupDescription.style.color = '#FFFFFF';
+                }
+
+                document.getElementById('volume').innerText = planetMetadata.volume;
+                if (volume) {
+                    volume.style.color = '#FFFFFF';
+                }
+                document.getElementById('mass').innerText = planetMetadata.mass;
+                if (mass) {
+                    mass.style.color = '#FFFFFF';
+                }
+                document.getElementById('gravity').innerText = planetMetadata.gravity;
+                if (gravity) {
+                    gravity.style.color = '#FFFFFF';
+                }
+                document.getElementById('temp').innerText = planetMetadata.temperature;
+                if (temp) {
+                    temp.style.color = '#FFFFFF';
                 }
     
                 // Ganti sumber gambar popup

@@ -209,8 +209,8 @@ function allEvent() {
     venus.mesh.metadata = {
         name: 'Venus',
         description: 'Venus is the second planet from the Sun and is often referred to as the Earth’s sister planet due to their similar size, mass, and composition. Venus has a thick atmosphere that traps heat, making it the hottest planet in the Solar System. It is named after the Roman goddess of love and beauty.',
-        volume: 'Volume: 9.2843 x 10^¹¹ km³',
-        mass: 'Mass: 4.8675 x 10^²⁴ kg',
+        volume: 'Volume: 9.2843 x 10¹¹ km³',
+        mass: 'Mass: 4.8675 x 10²⁴ kg',
         gravity: 'Gravity: 8.87 m/s²',
         temperature: 'Temperature: 462°C',
         imageSrc: './assets/pvenus.png',
@@ -218,7 +218,7 @@ function allEvent() {
     earth.mesh.metadata = {
         name: 'Earth',
         description: ' Earth is the third planet from the Sun and the only known planet to support life. It has a complex and dynamic system of interacting components, including the atmosphere, hydrosphere, biosphere, and geosphere. Earth is named after the Germanic word for “ground” or “soil” .',
-        volume: 'Volume: 1.08321 x 10^¹² km³',
+        volume: 'Volume: 1.08321 x 10¹² km³',
         mass: 'Mass: 5.9724 x 10²⁴ kg',
         gravity: 'Gravity: 9.807 m/s²',
         temperature: 'Temperature: Avg 15°C',

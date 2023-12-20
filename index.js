@@ -188,6 +188,11 @@ function allEvent() {
         }
     });
     
+    sun.metadata = {
+        name: 'sun',
+        description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',
+        imageSrc: './assets/pearth.png',
+    };
     mercury.mesh.metadata = {
         name: 'mercury',
         description: 'The second planet from the Sun. It is named after the Roman goddess of love and beauty.',

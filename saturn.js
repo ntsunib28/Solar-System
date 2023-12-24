@@ -38,8 +38,8 @@ function createPlanet(map, size, x, ring) {
         ringMat.blending = THREE.AdditiveBlending;
         const ringMesh = new THREE.Mesh(ringGeo, ringMat);
         obj.add(ringMesh);
-        ringMesh.position.x = x;
-        ringMesh.rotation.x = -0.5 * Math.PI
+        ringMesh.position.set(0, 0, 0);
+        ringMesh.rotation.x = 1 * Math.PI
     }
     mesh.position.x = x
     scene.add(obj)
@@ -49,7 +49,7 @@ function createPlanet(map, size, x, ring) {
 
 const saturn = createPlanet("./assets/saturn.jpg", 6, 0, {
     innerRadius: 10,
-    outerRadius: 20,
+    outerRadius: 15,
     texture: "./assets/saturn_ring.png"
 })
 

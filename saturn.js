@@ -6,6 +6,7 @@ cam.position.set(0, 0, 20)
 cam.lookAt(0,0,0)
 
 const scene = new THREE.Scene()
+scene.background = textureLoader.load("./assets/stars_milky_way.jpg")
 const renderer = new THREE.WebGLRenderer({ antialias: true })
 renderer.setSize(innerWidth,innerHeight)
 document.body.appendChild(renderer.domElement)
@@ -39,7 +40,7 @@ function createPlanet(map, size, x, ring) {
         const ringMesh = new THREE.Mesh(ringGeo, ringMat);
         obj.add(ringMesh);
         ringMesh.position.set(0, 0, 0);
-        ringMesh.rotation.x = 1 * Math.PI
+        ringMesh.rotation.x = -0.501 * Math.PI
     }
     mesh.position.x = x
     scene.add(obj)

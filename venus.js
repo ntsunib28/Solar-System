@@ -52,6 +52,9 @@ window.addEventListener("resize", resize)
 function init(){
     render()
     resize()
+    document.getElementById('backBtn').addEventListener('click', function() {
+        window.location.href = '/index.html';
+    });
 }
 
 init()

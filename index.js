@@ -16,7 +16,6 @@ const height = window.innerHeight
 const aspect = width / height
 orbitCam = new THREE.PerspectiveCamera(fov, aspect, 0.1, 1000)
 normalCam = new THREE.PerspectiveCamera(fov, aspect, 0.1, 1000)
-
 orbitCam.position.set(-90, 140, 140)
 normalCam.position.set(-90, 140, 140)
 normalCam.lookAt(0, 0, 0)

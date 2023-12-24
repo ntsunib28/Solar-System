@@ -6,6 +6,7 @@ cam.position.set(-18, 28, 45)
 cam.lookAt(0,0,0)
 
 const scene = new THREE.Scene()
+scene.background = textureLoader.load("./assets/stars_milky_way.jpg")
 const renderer = new THREE.WebGLRenderer({ antialias: true })
 renderer.setSize(innerWidth,innerHeight)
 document.body.appendChild(renderer.domElement)

@@ -19,7 +19,7 @@ normalCam = new THREE.PerspectiveCamera(fov, aspect, 0.1, 1000)
 orbitCam.position.set(-90, 140, 140)
 normalCam.position.set(-90, 140, 140)
 normalCam.lookAt(0, 0, 0)
-currentCam = normalCam
+currentCam = orbitCam
 renderer = new THREE.WebGLRenderer({ antialias: true })
 controls = new OrbitControls(orbitCam, renderer.domElement)
 controls.update()
@@ -189,7 +189,7 @@ function allEvent() {
     
     sun.metadata = {
         name: 'Sun',
-        description: 'The Sun is a star at the center of the Solar System.It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. The Sun is by far the most important source of energy for life on Earth, providing the warmth and light that make our planet habitable',
+        description: 'The Sun is a star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. The Sun is by far the most important source of energy for life on Earth, providing the warmth and light that make our planet habitable',
         volume: 'Volume: 1.41 x 10¹⁸ km³',
         mass: 'Mass: 1.9885 x 10³⁰ kg',
         gravity: 'Gravity: 274 m/s²',

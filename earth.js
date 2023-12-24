@@ -35,7 +35,7 @@ function createPlanet(map, size, x, planetName) {
 const earth = createPlanet("./assets/earth.jpg", 6, 0, 'Earth');
 
 // create moon for earth
-const moon = createPlanet("./assets/earth.jpg", 1, 6, 'Moon');
+const moon = createPlanet("./assets/moon.jpg", 1, 6, 'Moon');
 
 function render() {
     earth.mesh.rotateY(0.002)

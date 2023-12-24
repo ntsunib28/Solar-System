@@ -37,12 +37,12 @@ sun.userData = {
 sun.name = 'Sun'
 scene.add(sun);
 
-// Sunlight
-const pointLight = new THREE.PointLight(0xFFFFFF, 2, 300);
+// light buat sun
+const pointLight = new THREE.PointLight(0xFFFFFF, 2, 300)
 scene.add(pointLight);
 
-//Light
-const ambientLight = new THREE.AmbientLight(0x333333);
+// light keseluruhan
+const ambientLight = new THREE.AmbientLight(0x333333)
 scene.add(ambientLight);
 
 function createPlanet(map, size, x, planetName, ring) {
@@ -69,11 +69,11 @@ function createPlanet(map, size, x, planetName, ring) {
         const ringMesh = new THREE.Mesh(ringGeo, ringMat);
         obj.add(ringMesh);
         ringMesh.position.x = x;
-        ringMesh.rotation.x = -0.5 * Math.PI;
+        ringMesh.rotation.x = -0.5 * Math.PI
     }
 
     mesh.position.x = x
-    mesh.userData = { isClickable: true };
+    mesh.userData = { isClickable: true }
     mesh.name = planetName
 
     scene.add(obj)
@@ -130,25 +130,25 @@ window.addEventListener("keydown", (event) => {
 
 function animatePlanet() {
     //Rotasi
-    sun.rotateY(0.0004);
-    mercury.mesh.rotateY(0.0004);
-    venus.mesh.rotateY(0.0002);
-    earth.mesh.rotateY(0.002);
-    mars.mesh.rotateY(0.0018);
-    jupiter.mesh.rotateY(0.004);
-    saturn.mesh.rotateY(0.0038);
-    uranus.mesh.rotateY(0.003);
-    neptune.mesh.rotateY(0.0032);
+    sun.rotateY(0.0004)
+    mercury.mesh.rotateY(0.0004)
+    venus.mesh.rotateY(0.0002)
+    earth.mesh.rotateY(0.002)
+    mars.mesh.rotateY(0.0018)
+    jupiter.mesh.rotateY(0.004)
+    saturn.mesh.rotateY(0.0038)
+    uranus.mesh.rotateY(0.003)
+    neptune.mesh.rotateY(0.0032)
 
     //Revolusi
-    mercury.obj.rotateY(0.004);
-    venus.obj.rotateY(0.0015);
-    earth.obj.rotateY(0.001);
-    mars.obj.rotateY(0.0008);
-    jupiter.obj.rotateY(0.0002);
-    saturn.obj.rotateY(0.00009);
-    uranus.obj.rotateY(0.00004);
-    neptune.obj.rotateY(0.00001);
+    mercury.obj.rotateY(0.004)
+    venus.obj.rotateY(0.0015)
+    earth.obj.rotateY(0.001)
+    mars.obj.rotateY(0.0008)
+    jupiter.obj.rotateY(0.0002)
+    saturn.obj.rotateY(0.00009)
+    uranus.obj.rotateY(0.00004)
+    neptune.obj.rotateY(0.00001)
 
     renderer.render(scene, currentCam);
 }
@@ -166,7 +166,7 @@ function allEvent() {
 
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
-    let intersects = [0]; // Initialize as an empty array
+    let intersects = [0]
 
     window.addEventListener("mousemove", event => {
         pointer.x = (event.clientX / window.innerWidth) * 2 - 1;

@@ -1,4 +1,5 @@
 import * as THREE from './Three JS/build/three.module.js'
+import { OrbitControls } from './Three JS/examples/jsm/controls/OrbitControls.js'
 
 const aspect = window.innerWidth / window.innerHeight
 const cam = new THREE.PerspectiveCamera(70,aspect,1,1000)
@@ -6,9 +7,13 @@ cam.position.set(0, 0, 20)
 cam.lookAt(0,0,0)
 
 const scene = new THREE.Scene()
-scene.background = textureLoader.load("./assets/stars_milky_way.jpg")
+scene.background = new THREE.TextureLoader().load("./assets/stars_milky_way.jpg")
 const renderer = new THREE.WebGLRenderer({ antialias: true })
 renderer.setSize(innerWidth,innerHeight)
+let controls
+controls = new OrbitControls(cam, renderer.domElement)
+controls.enableZoom = false
+controls.update()
 document.body.appendChild(renderer.domElement)
 
 const ambientLight = new THREE.AmbientLight('white',1)
@@ -62,8 +67,16 @@ function render() {
 
 renderer.setAnimationLoop(render)
 
+function resize() {
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    cam.aspect = window.innerWidth / window.innerHeight
+    cam.updateProjectionMatrix()
+}
+window.addEventListener("resize", resize)
+
 function init(){
     render()
+    resize()
 }
 
 init()

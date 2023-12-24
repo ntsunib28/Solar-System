@@ -286,40 +286,29 @@ function allEvent() {
     
                 // Ganti isi elemen-elemen popup dengan informasi planet
                 document.getElementById('popupTitle').innerText = planetMetadata.name;
-                if (popupTitle) {
-                    popupTitle.style.color = '#FFFFFF';
-                }
                 document.getElementById('popupDescription').innerText = planetMetadata.description;
-                if (popupDescription) {
-                    popupDescription.style.color = '#FFFFFF';
-                }
-
                 document.getElementById('volume').innerText = planetMetadata.volume;
-                if (volume) {
-                    volume.style.color = '#FFFFFF';
-                }
                 document.getElementById('mass').innerText = planetMetadata.mass;
-                if (mass) {
-                    mass.style.color = '#FFFFFF';
-                }
                 document.getElementById('gravity').innerText = planetMetadata.gravity;
-                if (gravity) {
-                    gravity.style.color = '#FFFFFF';
-                }
                 document.getElementById('temp').innerText = planetMetadata.temperature;
-                if (temp) {
-                    temp.style.color = '#FFFFFF';
+                if(planetMetadata.name=="Sun"){
+                    document.getElementById('click').style.display = 'none';
+                    document.getElementById('imgURL').style.pointerEvents = 'none';
+                }else{
+                    document.getElementById('click').style.display = 'block';
+                    document.getElementById('imgURL').style.pointerEvents = 'auto';
+                    const imgURL = document.getElementById('imgURL');
+                    if (imgURL) {
+                        imgURL.href = planetMetadata.imageUrl;
+                    }
                 }
-    
                 // Ganti sumber gambar popup
                 const popupImage = document.getElementById('popupImage');
-                if (popupImage) {
-                    popupImage.src = planetMetadata.imageSrc;
-                }
-                const imgURL = document.getElementById('imgURL');
-                if (imgURL) {
-                    imgURL.href = planetMetadata.imageUrl;
-                }
+                    if (popupImage) {
+                        popupImage.src = planetMetadata.imageSrc;
+                    }
+    
+                
     
                 popup.style.display = 'block';
             }

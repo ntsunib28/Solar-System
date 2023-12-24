@@ -195,6 +195,7 @@ function allEvent() {
         gravity: 'Gravity: 274 m/s²',
         temperature: 'Temperature: 15,600,000°C',
         imageSrc: './assets/psun.png',
+        imageUrl: 'sun.html'
     };
     mercury.mesh.metadata = {
         name: 'Mercury',
@@ -204,6 +205,7 @@ function allEvent() {
         gravity: 'Gravity: 3.7 m/s²',
         temperature: 'Temperature: -173°C at night to 427°C during the day',
         imageSrc: './assets/pmercury.png',
+        imageUrl: 'mercury.html'
     };
     venus.mesh.metadata = {
         name: 'Venus',
@@ -213,6 +215,7 @@ function allEvent() {
         gravity: 'Gravity: 8.87 m/s²',
         temperature: 'Temperature: 462°C',
         imageSrc: './assets/pvenus.png',
+        imageUrl: 'venus.html'
     };
     earth.mesh.metadata = {
         name: 'Earth',
@@ -222,6 +225,7 @@ function allEvent() {
         gravity: 'Gravity: 9.807 m/s²',
         temperature: 'Temperature: Avg 15°C',
         imageSrc: './assets/pearth.png',
+        imageUrl: 'earth.html'
     };
     mars.mesh.metadata = {
         name: 'Mars',
@@ -231,6 +235,7 @@ function allEvent() {
         gravity: 'Gravity: 3.71 m/s²',
         temperature: 'Temperature: -63°C',
         imageSrc: './assets/pmars.png',
+        imageUrl: 'mars.html'
     };
     jupiter.mesh.metadata = {
         name: 'Jupiter',
@@ -240,6 +245,7 @@ function allEvent() {
         gravity: 'Gravity: 24.79 m/s²',
         temperature: 'Temperature: -145°C',
         imageSrc: './assets/pjupiter.png',
+        imageUrl: 'jupiter.html'
     };
     saturn.mesh.metadata = {
         name: 'Saturn',
@@ -249,6 +255,7 @@ function allEvent() {
         gravity: 'Gravity: 10.44 m/s²',
         temperature: 'Temperature: -178°C',
         imageSrc: './assets/psaturn.png',
+        imageUrl: 'saturn.html'
     };
     uranus.mesh.metadata = {
         name: 'Uranus',
@@ -258,6 +265,7 @@ function allEvent() {
         gravity: 'Gravity: 8.69 m/s²',
         temperature: 'Temperature: -195°C',
         imageSrc: './assets/puranus.png',
+        imageUrl: 'uranus.html'
     };
     neptune.mesh.metadata = {
         name: 'Neptune',
@@ -267,6 +275,7 @@ function allEvent() {
         gravity: 'Gravity: 11.15 m/s²',
         temperature: 'Temperature: -200°C',
         imageSrc: './assets/pneptune.png',
+        imageUrl: 'neptune.html'
     };
     
     function onPlanetClick() {
@@ -306,6 +315,10 @@ function allEvent() {
                 const popupImage = document.getElementById('popupImage');
                 if (popupImage) {
                     popupImage.src = planetMetadata.imageSrc;
+                }
+                const imgURL = document.getElementById('imgURL');
+                if (imgURL) {
+                    imgURL.href = planetMetadata.imageUrl;
                 }
     
                 popup.style.display = 'block';

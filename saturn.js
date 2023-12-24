@@ -30,7 +30,7 @@ function createPlanet(map, size, x, ring) {
             ring.innerRadius,
             ring.outerRadius,
             32);
-        const ringMat = new THREE.MeshBasicMaterial({
+        const ringMat = new THREE.MeshStandardMaterial({
             map: textureLoader.load(ring.texture),
             side: THREE.DoubleSide
         });
